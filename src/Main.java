@@ -1,21 +1,50 @@
-//TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
-// 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
+class Shape {
+    public void area() {
+        System.out.println();
+    }
+}
+
+class Circle extends Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public void area() {
+        double result = Math.PI * radius * radius;
+        System.out.println("Circle Area: " + result);
+    }
+}
+
+class Rectangle extends Shape {
+    private double width;
+    private double height;
+
+    public Rectangle(double width, double height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    @Override
+    public void area() {
+        double result = width * height;
+        System.out.println("Rectangle Area: " + result);
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
-        int age = 25;
+        Shape s1 = new Circle(3);
+        Shape s2 = new Rectangle(4, 5);
 
-        System.out.println(age);
+        s1.area();
+        s2.area();
 
-        age = 26;
-
-        System.out.println(age);
-
-        double salary = 50000.75;
-
-        System.out.println(salary);
-
-        String name = "류희성";
-
-        System.out.println(name);
+        Shape[] shapes = { s1, s2 };
+        for (Shape shape : shapes) {
+            shape.area();
+        }
     }
 }

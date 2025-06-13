@@ -1,50 +1,32 @@
-class Shape {
-    public void area() {
-        System.out.println();
-    }
+interface Animal {
+    void makeSound();
 }
 
-class Circle extends Shape {
-    private double radius;
-
-    public Circle(double radius) {
-        this.radius = radius;
-    }
-
+class Dog implements Animal {
     @Override
-    public void area() {
-        double result = Math.PI * radius * radius;
-        System.out.println("Circle Area: " + result);
+    public void makeSound() {
+        System.out.println("멍멍!");
+    }
+
+    public void makeLoud() {
+        System.out.println("으르르깡깡");
     }
 }
 
-class Rectangle extends Shape {
-    private double width;
-    private double height;
 
-    public Rectangle(double width, double height) {
-        this.width = width;
-        this.height = height;
-    }
 
-    @Override
-    public void area() {
-        double result = width * height;
-        System.out.println("Rectangle Area: " + result);
-    }
-}
+
 
 public class Main {
     public static void main(String[] args) {
-        Shape s1 = new Circle(3);
-        Shape s2 = new Rectangle(4, 5);
+        Animal dog = new Dog();
 
-        s1.area();
-        s2.area();
+        dog.makeSound();
 
-        Shape[] shapes = { s1, s2 };
-        for (Shape shape : shapes) {
-            shape.area();
+        if (dog instanceof Dog){
+            Dog newdog = new Dog();
+
+            newdog.makeLoud();
         }
     }
 }
